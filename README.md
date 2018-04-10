@@ -17,6 +17,10 @@
 
 # 如何使用？
 
+- LOMBOK插件
+    - 减少GET,SET
+- 
+
 {% codeblock %}
 git clone https://github.com/ongstan/TrafficInformationSystem
 cd TrafficInformationSystem
