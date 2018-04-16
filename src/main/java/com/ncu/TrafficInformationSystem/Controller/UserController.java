@@ -27,10 +27,29 @@ public class UserController {
             if (null == queryUser) {
                 return new ResponseEntity<>("您输入的用户名不存在", HttpStatus.NOT_FOUND);
             }
-            else if (requestUser.getUserPassword() == null && !queryUser.getUserPassword().equals(requestUser.getUserPassword())) {
+            else if (requestUser.getUserPassword() == null || !queryUser.getUserPassword().equals(requestUser.getUserPassword())) {
                 return new ResponseEntity<>("您输入的密码不匹配", HttpStatus.NOT_FOUND);
             } else {
                 return new ResponseEntity<>("登录成功", HttpStatus.OK);
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            return new ResponseEntity<>("您当前的网络有问题", HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/register")
+    public ResponseEntity<String> registerUser(User requestUser) {
+
+        System.out.println(requestUser.toString());
+        try{
+            User queryUser = userMapper.selectUserByUserId(requestUser);
+            if (null != queryUser) {
+                return new ResponseEntity<>("您输入的邮箱已被注册", HttpStatus.NOT_FOUND);
+            }
+            else {
+                userMapper.insertUser(requestUser);
+                return new ResponseEntity<>("注册成功", HttpStatus.OK);
             }
         } catch (Exception e){
             e.printStackTrace();

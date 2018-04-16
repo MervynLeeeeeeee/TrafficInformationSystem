@@ -11,4 +11,8 @@ public interface UserMapper {
     User find(User record);
 
     User selectUserByUsername(User record);
+
+    User selectUserByUserId(User record);
+
+    void insertUser(User record);
 }

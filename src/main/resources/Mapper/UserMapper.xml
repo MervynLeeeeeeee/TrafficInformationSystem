@@ -7,6 +7,7 @@
         <id column="user_id" property="userId"/>
         <result column="user_name" property="userName"/>
         <result column="user_nickname" property="userNickname"/>
+        <result column="user_password" property="userPassword"/>
         <result column="user_level" property="userLevel"/>
         <result column="register_time" property="registerTime"/>
     </resultMap>
@@ -28,4 +29,17 @@
         FROM user
         WHERE user_name = #{userName, jdbcType=VARCHAR}
     </select>
+
+    <select id="selectUserByUserId" resultMap="BaseResultMap">
+        SELECT
+        <include refid="BaseColumn"/>
+        FROM user
+        WHERE user_id = #{userId,jdbcType=VARCHAR}
+    </select>
+
+    <insert id="insertUser">
+        INSERT
+        INTO user
+        VALUES (#{userId}, #{userName}, #{userNickname}, #{userPassword}, #{userLevel}, #{registerTime})
+    </insert>
 </mapper>
