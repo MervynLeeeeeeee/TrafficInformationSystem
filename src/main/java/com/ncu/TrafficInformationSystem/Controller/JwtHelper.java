@@ -1,4 +1,4 @@
 package com.ncu.TrafficInformationSystem.Controller;
 
-public class JsonWebToken {
+public class JwtHelper {
 }
