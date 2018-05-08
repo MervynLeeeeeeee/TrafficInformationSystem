@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
 }
 </script>
 
 <style>
   body {
-    background-color: #1abc9c;
+    background-color: #409eff;
   }
 
   #app {
