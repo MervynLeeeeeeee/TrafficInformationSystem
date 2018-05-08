@@ -24,6 +24,7 @@ public class JwtHelper {
             return claims;
         } catch (Exception ex){
             return null;
+
         }
     }
 

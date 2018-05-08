@@ -41,6 +41,7 @@ public class Interceptor implements HandlerInterceptor{
             }
             printWriter.flush();
             printWriter.close();
+             
             return true;
         }
         else{
